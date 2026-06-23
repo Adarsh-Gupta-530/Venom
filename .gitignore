@@ -1,0 +1,5 @@
+.env
+node_modules
+PLAN.md
+SYSTEM_PROMPT.md
+TASK.md

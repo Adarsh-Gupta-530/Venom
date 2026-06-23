@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-dark-200 dark:border-dark-700;
+  }
+
+  body {
+    @apply font-sans transition-colors duration-200;
+  }
+
+  /* Custom scrollbar — gold-tinted */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark-300 dark:bg-dark-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-400/60 dark:bg-brand-400/40;
+  }
+}
+
+@layer components {
+  /* Sidebar item */
+  .sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm
+      text-dark-600 dark:text-dark-400
+      hover:bg-dark-100 dark:hover:bg-dark-800
+      transition-all duration-150 cursor-pointer select-none;
+  }
+
+  .sidebar-item.active {
+    @apply bg-dark-100 dark:bg-dark-800
+      text-dark-900 dark:text-dark-100
+      font-medium;
+  }
+
+  /* Message bubble base */
+  .message-bubble {
+    @apply px-4 py-3 rounded-2xl text-sm leading-relaxed max-w-[85%] md:max-w-[75%] lg:max-w-[65%];
+  }
+
+  .message-bubble.user {
+    @apply bg-brand-500 text-white rounded-br-md;
+  }
+
+  .message-bubble.assistant {
+    @apply bg-dark-100 dark:bg-dark-800 text-dark-800 dark:text-dark-200 rounded-bl-md;
+  }
+
+  /* Glass — dark marble with golden edge */
+  .glass {
+    @apply bg-dark-900/60 dark:bg-dark-900/60 backdrop-blur-xl border border-brand-400/10 shadow-2xl;
+  }
+
+  .glass-card {
+    @apply bg-white/[0.02] backdrop-blur-md border border-brand-400/[0.08] hover:border-brand-400/25 transition-colors duration-300;
+  }
+
+  /* Text gradients — gold shimmer */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-300 via-brand-400 to-accent-500;
+  }
+
+  /* Typing dots animation */
+  .typing-dot {
+    @apply w-2 h-2 rounded-full bg-dark-400 dark:bg-dark-500;
+    animation: bounceDot 1.4s ease-in-out infinite;
+  }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Magnetic Button Hover */
+  .btn-magnetic {
+    @apply transition-transform duration-300;
+  }
+  .btn-magnetic:hover {
+    transform: scale(1.03);
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Link Lift */
+  .link-lift {
+    @apply transition-transform duration-200 inline-block;
+  }
+  .link-lift:hover {
+    transform: translateY(-1px);
+  }
+}
