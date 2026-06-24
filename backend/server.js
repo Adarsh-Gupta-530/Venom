@@ -14,7 +14,9 @@ dotenv.config({ path: path.resolve(__dirname, '..', '.env') });
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:5173", "https://venom-zlei-nd2l1yu0q-adarshgupta4530-5398s-projects.vercel.app"]
+}));
 app.use(helmet());
 app.use(express.json());
 
