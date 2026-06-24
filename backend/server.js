@@ -15,7 +15,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ["http://localhost:5173", "https://venom-zlei-nd2l1yu0q-adarshgupta4530-5398s-projects.vercel.app"],
+  origin: ["http://localhost:5173", "https://venom-zlei.vercel.app/"],
   credentials: true
 }));
 app.use(helmet());
