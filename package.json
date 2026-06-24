@@ -6,7 +6,7 @@
     "dev:frontend": "vite --cwd frontend",
     "dev:backend": "node backend/server.js",
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
-    "build": "vite build --cwd frontend",
+    "build": "npm --prefix frontend run build",
     "start": "node backend/server.js"
   },
   "dependencies": {
