@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 
-const API_BASE = '/api';
+// In production, VITE_API_URL will point to the Railway backend domain
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
 
 const useChatStore = create((set, get) => ({
   // ── Auth state ──
