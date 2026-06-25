@@ -325,7 +325,14 @@ const useChatStore = create((set, get) => ({
         body: JSON.stringify({ chatId, message: content }),
       });
 
-      if (!res.ok) throw new Error('Stream request failed');
+      if (!res.ok) {
+        let errMsg = 'Stream request failed';
+        try {
+          const errData = await res.json();
+          if (errData.error) errMsg = errData.error;
+        } catch (e) {}
+        throw new Error(errMsg);
+      }
 
       const reader = res.body.getReader();
       const decoder = new TextDecoder();

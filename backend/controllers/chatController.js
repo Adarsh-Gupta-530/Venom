@@ -162,9 +162,9 @@ exports.handleMessage = async (req, res) => {
   } catch (err) {
     console.error(err);
     if (!res.headersSent) {
-      res.status(500).json({ error: 'Failed to process chat message' });
+      res.status(500).json({ error: err.message || 'Failed to process chat message' });
     } else {
-      res.write(`event: error\ndata: ${JSON.stringify({ error: 'Server error' })}\n\n`);
+      res.write(`event: error\ndata: ${JSON.stringify({ error: err.message || 'Server error' })}\n\n`);
       res.end();
     }
   }
